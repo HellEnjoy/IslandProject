@@ -1,13 +1,33 @@
 package com.company;
 
 import com.company.animals.Animal;
-import java.util.List;
+import java.util.LinkedList;
 
 public class Field {
-    private List<Animal> allAnimals;
-    private List<List<Location>> allLocations;
+    private LinkedList<Animal> allAnimals;
+    private Location[][] allLocations;
 
-    public Field() {
+    public Field(int rows, int cols) {
+        allAnimals = new LinkedList<Animal>();
+        allLocations = new Location[rows][cols];
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < cols; j++) {
+                allLocations[i][j] = new Location();
+            }
+        }
+    }
 
+    public void IterateAll() {
+        // Restore all grass
+        for (int i = 0; i < allLocations.length; i++) {
+            for (int j = 0; j < allLocations[i].length; j++) {
+                allLocations[i][j].PutGrass();
+            }
+        }
+
+        // Action all animals
+        for(int i = 0; i < allAnimals.size(); i++){
+            allAnimals.get(i).Action();
+        }
     }
 }
