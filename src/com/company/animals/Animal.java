@@ -1,9 +1,15 @@
 package com.company.animals;
 import com.company.Location;
 
-public interface Animal {
+public abstract class Animal {
 
-    public void Action();
+    private Location location;
 
-    public Location GetLocation();
+    public void Action() {
+
+    }
+
+    public Location GetLocation() {
+        return null;
+    }
 }
